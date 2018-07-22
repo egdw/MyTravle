@@ -29,6 +29,7 @@ export default {
 <style scoped lang='stylus'>
 
   #nav_top
+    overflow hidden
     width 100%
     height 0.44rem
     background-color #00bcd4
@@ -67,6 +68,7 @@ export default {
         font-size 0.13rem
         input
           flex 1
+          width 85%
           line-height 0.09rem
           font-weight: bold
           letter-spacing 0.01rem
