@@ -27,12 +27,12 @@ export default {
 </script>
 
 <style scoped lang='stylus'>
-
+  @import '~styles/variable.styl';
   #nav_top
     overflow hidden
     width 100%
     height 0.44rem
-    background-color #00bcd4
+    background-color $bgcolor
     display --webkit-flex
     display flex
     color white
