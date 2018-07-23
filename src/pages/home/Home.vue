@@ -2,6 +2,7 @@
   <div>
     <Header></Header>
     <Swiper></Swiper>
+    <Tab></Tab>
   </div>
 </template>
 
@@ -9,6 +10,7 @@
 // import Header from './components/Header';
 import Header from "./component/Header";
 import Swiper from "./component/Swiper"
+import Tab from "./component/Tab"
 export default {
   name: "Home",
   data() {
@@ -18,7 +20,8 @@ export default {
   },
   components: {
     Header,
-    Swiper
+    Swiper,
+    Tab
   },
 };
 </script>
