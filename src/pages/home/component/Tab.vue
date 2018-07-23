@@ -12,7 +12,7 @@
                         </div>
                     </li>
                   </swiper-slide>
-                  <div class="swiper-pagination"  slot="pagination"></div>
+                  <!-- <div class="swiper-pagination"  slot="pagination"></div> -->
              </swiper>
              
         </ul>
@@ -104,9 +104,7 @@ export default {
         effect: "coverflow",
         noSwiping: true,
         autoplay: true,
-        pagination: {
-          el: ".swiper-pagination"
-        },
+       
       }
     };
   },
@@ -119,7 +117,6 @@ export default {
         const pages = [];
         this.tablist.forEach((item, index) => {
             const p = Math.floor(index/8)
-            console.log(p)
             if(!pages[p]){
                 pages[p] =[]
             }
