@@ -6,10 +6,15 @@
         <div class="location">
             温州
         </div>
-        <ul class="list_ul" v-for="(item,key) of list" :key="item">
+        <ul class="list_ul" v-for="(item,key,index) of list" :key="index">
             <div class="list_title">{{key}}</div>
             <li class="location" v-for="l of item" :key="l.id">{{l.name}}</li>
         </ul>
+        <div class="left_controller">
+            <ul class="left_controller_ul">
+                <li class="left_controller_li" v-for="(item,index) of asci" :key="index">{{item}}</li>               
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -18,7 +23,32 @@ const axios = require("axios");
 export default {
   data() {
     return {
-      list: []
+      list: [],
+      asci: [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I",
+        "J",
+        "K",
+        "L",
+        "M",
+        "N",
+        "O",
+        "P",
+        "G",
+        "U",
+        "V",
+        "W",
+        "X",
+        "Y",
+        "Z"
+      ]
     };
   },
   mounted() {
@@ -29,11 +59,7 @@ export default {
       axios
         .get("/static/mock/city.json")
         .then(res => {
-          // console.log("success")
-          console.log(res.data.data.cities)
           this.list = res.data.data.cities;
-          //   this.list = res.data.cities;
-          //   console.log(this.list);
         })
         .catch(err => {
           console.log("error" + err);
@@ -44,6 +70,28 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.left_controller {
+    position: fixed;
+    right: 0;
+    top: 0.9rem;
+    height: 100%;
+    width: 0.22rem;
+}
+
+.left_controller_ul {
+    color: #ccc;
+    font-size: 0.1rem;
+    text-align: center;
+    padding-right: 0.1rem;
+}
+
+.left_controller_li {
+    padding-top: 0.03rem;
+}
+
+.list_ul {
+}
+
 #your_location {
     background-color: #edf5f9;
     font-size: 0.1rem;
