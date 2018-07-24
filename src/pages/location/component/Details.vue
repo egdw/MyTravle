@@ -86,10 +86,11 @@ export default {
 }
 
 .left_controller_li {
-    padding-top: 0.03rem;
+    padding-top: 0.1rem;
 }
 
 .list_ul {
+    
 }
 
 #your_location {
@@ -98,6 +99,7 @@ export default {
     height: 0.22rem;
     line-height: 0.2rem;
     padding-left: 0.1rem;
+    padding-top 0.88rem
 }
 
 .list_title {
