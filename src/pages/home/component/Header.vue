@@ -3,9 +3,11 @@
       <div id="nav_back">
         <span class="iconfont">&#xe624;</span>
       </div>
+      <router-link to="Location">
       <div id="nav_location">
         <span class="iconfont">&#xe63f;北京</span>
       </div>
+      </router-link>
       <div id="nav_search">
         <span class="iconfont">&#xe632;&nbsp;&nbsp;<input type="text" placeholder="搜索目的地"></span>
       </div>
@@ -28,6 +30,8 @@ export default {
 
 <style scoped lang='stylus'>
   @import '~styles/variable.styl';
+  a
+    color white
   #nav_top
     overflow hidden
     width 100%
