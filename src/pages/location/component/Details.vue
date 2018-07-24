@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="main2">
         <div id="your_location">
             你的位置
         </div>
@@ -7,12 +7,12 @@
             温州
         </div>
         <ul class="list_ul" v-for="(item,key,index) of list" :key="index">
-            <div class="list_title">{{key}}</div>
+            <div class="list_title" :id="key">{{key}}</div>
             <li class="location" v-for="l of item" :key="l.id">{{l.name}}</li>
         </ul>
         <div class="left_controller">
             <ul class="left_controller_ul">
-                <li class="left_controller_li" v-for="(item,index) of asci" :key="index">{{item}}</li>               
+                <li class="left_controller_li" @click="position(item)" v-for="(item,index) of asci" :key="index">{{item}}</li>               
             </ul>
         </div>
     </div>
@@ -64,12 +64,16 @@ export default {
         .catch(err => {
           console.log("error" + err);
         });
+    },
+    position: function(asci) {
+      document.location.hash = asci;
     }
   }
 };
 </script>
 
 <style scoped lang="stylus">
+
 .left_controller {
     position: fixed;
     right: 0;
@@ -90,7 +94,7 @@ export default {
 }
 
 .list_ul {
-    
+ 
 }
 
 #your_location {
@@ -99,7 +103,7 @@ export default {
     height: 0.22rem;
     line-height: 0.2rem;
     padding-left: 0.1rem;
-    padding-top 0.88rem
+    padding-top: 0.88rem;
 }
 
 .list_title {
@@ -110,7 +114,10 @@ export default {
     padding-left: 0.1rem;
     background-color: #edf5f9;
 }
-
+.list_title:target{
+    padding-top 0.88rem
+    margin-top -0.88rem
+}
 .location {
     font-size: 0.15rem;
     color: #212121;
