@@ -4,15 +4,14 @@
             你的位置
         </div>
         <div class="location" v-show="display">
-            温州
+            {{city}}
         </div>
         <ul class="list_ul" v-for="(item,key,index) of list" :key="index" v-show="display">
             <div class="list_title" :id="key">{{key}}</div>
-            <li class="location" v-for="l of item" :key="l.id">{{l.name}}</li>
+            <li class="location" @click="setcity(l.name)" v-for="l of item" :key="l.id">{{l.name}}</li>
         </ul>
         <ul class="list_ul2" v-show="!display">
-            <li class="location"  v-for="(item,key,index) of result" :key="index">{{item.name}}</li>
-            <!-- {{result}} -->
+            <li class="location" @click="setcity(item.name)"  v-for="(item,key,index) of result" :key="index">{{item.name}}</li>
         </ul>
         <div class="left_controller" v-show="display">
             <ul class="left_controller_ul">
@@ -25,6 +24,8 @@
 <script>
 const axios = require("axios");
 import Bus from "@/assets/js/eventBus.js";
+import store from "@/assets/js/store.js";
+
 export default {
   data() {
     return {
@@ -77,20 +78,20 @@ export default {
     },
     getresult: function(msg) {
       this.result = [];
-      console.log("接受到..." + msg);
       for (let i in this.list) {
         this.list[i].forEach(element => {
-          // console.log(element.name)
-          //   console.log("element.name:"+element.name+element.name.indexOf(msg))
           if (
             element.name.indexOf(msg) != -1 ||
             element.spell.indexOf(msg) != -1
           ) {
-            console.log(element);
             this.result.push(element);
           }
         });
       }
+    },
+    setcity:function(mcity){
+      store.dispatch("updatecity",mcity)
+      this.$router.push("/")
     }
   },
   mounted() {
@@ -114,70 +115,75 @@ export default {
         self.timer = setTimeout(() => self.getresult(msg), 100);
       }
     });
+  },
+  computed: {
+    city() {
+      return store.state.city;
+    }
   }
 };
 </script>
 
 <style scoped lang="stylus">
 .left_controller {
-    position: fixed;
-    right: 0;
-    top: 0.9rem;
-    height: 100%;
-    width: 0.22rem;
+  position: fixed;
+  right: 0;
+  top: 0.9rem;
+  height: 100%;
+  width: 0.22rem;
 }
 
 .left_controller_ul {
-    color: #ccc;
-    font-size: 0.1rem;
-    text-align: center;
-    padding-right: 0.1rem;
+  color: #ccc;
+  font-size: 0.1rem;
+  text-align: center;
+  padding-right: 0.1rem;
 }
 
 .left_controller_li {
-    padding-top: 0.05rem;
+  padding-top: 0.05rem;
 }
 
 .list_ul2 {
-    padding-top: 0.88rem;
+  padding-top: 0.88rem;
 }
 
 #your_location {
-    background-color: #edf5f9;
-    font-size: 0.1rem;
-    height: 0.22rem;
-    line-height: 0.2rem;
-    padding-left: 0.1rem;
-    padding-top: 0.88rem;
+  background-color: #edf5f9;
+  font-size: 0.1rem;
+  height: 0.22rem;
+  line-height: 0.2rem;
+  padding-left: 0.1rem;
+  padding-top: 0.88rem;
 }
 
 .list_title {
-    height: 0.11rem;
-    font-size: 0.1rem;
-    height: 0.22rem;
-    line-height: 0.22rem;
-    padding-left: 0.1rem;
-    background-color: #edf5f9;
+  height: 0.11rem;
+  font-size: 0.1rem;
+  height: 0.22rem;
+  line-height: 0.22rem;
+  padding-left: 0.1rem;
+  background-color: #edf5f9;
 }
 
 .list_title:target {
-    padding-top: 0.88rem;
-    margin-top: -0.88rem;
+  padding-top: 0.88rem;
+  margin-top: -0.88rem;
 }
 
 .location {
-    font-size: 0.15rem;
-    color: #212121;
-    height: 0.44rem;
-    line-height: 0.44rem;
-    padding-left: 0.1rem;
+  font-size: 0.15rem;
+  color: #212121;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  padding-left: 0.1rem;
 }
 
 .location {
-    font-size: 0.15rem;
-    color: #212121;
-    height: 0.44rem;
-    line-height: 0.44rem;
-    padding-left: 0.1rem;
+  font-size: 0.15rem;
+  color: #212121;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  padding-left: 0.1rem;
 }
 </style>

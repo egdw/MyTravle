@@ -1,7 +1,7 @@
 <template>
 <div id="main">
     <div id="Header_top">
-      <div id="nav_back">
+      <div id="nav_back" @click="$router.go(-1)">
         <span class="iconfont">&#xe624;</span>
       </div>
       <div id="nav_title">

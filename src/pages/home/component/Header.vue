@@ -5,7 +5,7 @@
       </div>
       <router-link to="Location">
       <div id="nav_location">
-        <span class="iconfont">&#xe63f;北京</span>
+        <span class="iconfont">&#xe63f;{{city}}</span>
       </div>
       </router-link>
       <div id="nav_search">
@@ -20,10 +20,16 @@
 </template>
 
 <script>
+import store from "@/assets/js/store.js";
 export default {
   name: "Header",
   data() {
     return {};
+  },
+  computed:{
+    city(){
+      return store.state.city
+    }
   }
 };
 </script>
@@ -72,7 +78,7 @@ export default {
         font-size 0.13rem
         input
           flex 1
-          width 85%
+          width 75%
           line-height 0.09rem
           font-weight: bold
           letter-spacing 0.01rem
