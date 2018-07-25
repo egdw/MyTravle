@@ -3,11 +3,13 @@
       <div id="nav_back">
         <span class="iconfont">&#xe624;</span>
       </div>
+      <keep-alive>
       <router-link to="Location">
       <div id="nav_location">
         <span class="iconfont">&#xe63f;{{city}}</span>
       </div>
       </router-link>
+      </keep-alive>
       <div id="nav_search">
         <span class="iconfont">&#xe632;&nbsp;&nbsp;<input type="text" placeholder="搜索目的地"></span>
       </div>
