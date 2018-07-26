@@ -1,8 +1,9 @@
-# mytravle
+# mytravle_vue_demo
 
 > A Vue.js project
+> 第一次使用vue.js做一个小的测试项目
 
-## Build Setup
+## 安装步骤
 
 ``` bash
 # install dependencies
@@ -14,14 +15,17 @@ npm run dev
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 第三方插件
+* swiper
+* stylus
+
+## 总结
+通过完成一个简易的vue功能大体了解了Vue的使用流程.
+
+## 图片
+
+
+## 总结
+目前就完成了两个项目.后面就不打了,感觉没啥用了.知道怎么弄就好了,再弄就是体力问题了.不会有很大的提高了.所以就此结束.
